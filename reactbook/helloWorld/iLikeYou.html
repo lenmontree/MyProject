@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <title id="likeyou">我喜欢你</title>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <div id="iLikeYou"></div>
+    <div id="MeToo"></div>
+    <div id="countInput"></div>
+    <script type="text/babel">
+        class Like extends React.Component{
+            constructor(props){
+                    super(props),
+                    this.state={
+                        isLike:true,
+                        msg:"我喜欢你"
+                    }
+                    this.change=this.change.bind(this);
+            }
+
+        change() {
+        const isTrue=this.state.isLike;
+            if(isTrue){
+            console.log(this.state);
+                this.setState({
+                isLike:false,
+                msg:"你喜欢我"
+            })
+            } else {
+            console.log(this.state);
+                this.setState({
+                isLike:true,
+                msg:"我喜欢你"
+            })
+            }
+            }
+
+          render(){
+                return <h2 onClick={this.change}>{this.state.msg}</h2>
+            }
+        }
+        ReactDOM.render(<Like />,document.getElementById("iLikeYou"))
+    </script>
+    <script type="text/babel">
+        //定义组建
+        class IsLike extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    isLike:true
+                }
+                this.handle=this.handle.bind(this);
+            }
+             handle(){
+
+             console.log(this)
+                const isLike=!this.state.isLike
+
+                this.setState(
+                    {isLike}
+                )
+            }
+            render(){
+                return <button onClick={this.handle}>{this.state.isLike ? "我喜欢你":"你也喜欢我"}</button>
+            }
+        }
+
+        //渲染组建
+        ReactDOM.render(<IsLike />,document.getElementById("MeToo"));
+    </script>
+    <script type="text/babel">
+        //定义组件
+        class CountInput extends React.Component{
+
+            render(){
+                return (
+                    <input></input>
+                    <h1></h1>
+                )
+            }
+        }
+        //渲染组件
+        ReactDOM.render(<CountInput />,getElementById("countInput"))
+    </script>
+</body>
+</html>

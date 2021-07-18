@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello_vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>计数器：{{counter}}</h2>
+    <button @click="add">+</button>
+    <button @click="subtract">-</button>
+</div>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            add: function () {
+                this.counter++;
+            },
+            subtract: function () {
+                this.counter--;
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>
+

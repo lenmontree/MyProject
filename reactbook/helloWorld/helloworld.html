@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        hello react
+    </title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="app">
+    <!--这是注释-->
+    甘伟伟和李雪连：
+</div>
+<div id="app1">
+    <!--这是注释-->
+</div>
+<div id="app2">
+    <!--这是注释-->
+</div>
+<div id="app3">
+    <!--这是注释-->
+</div>
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.js"></script>
+<script src="../js/babel.min.js"></script>
+<!--<ul>
+    <li>{names.map(name=>{
+    <li>name</li>
+    })}</li>
+<ul/>-->
+<script type="text/babel">
+const myId="myid";
+const hel="hello";
+var cre=React.createElement("h1",{id:"myid"},"helloganwei");
+var names=["甘伟伟","李雪连"];
+const reactList=(
+    <ul>
+        {names.map(((name,index) =>
+        <li key={index}>
+        {name}
+        </li>
+        ))}
+    </ul>
+)
+function MyComponent(props) {
+    return (
+    <select>
+        {props.name.map(((name,index) =>
+        <option key={index} >
+        {name}
+        </option>
+        ))}
+    </select>
+)
+}
+class MyComponent2 extends  React.Component{
+    render() {
+    console.log(this);
+         return <h3>class MyComponent extends React.Component</h3>
+    }
+
+}
+const divSmall=<h1 id={myId}>{hel}</h1>;
+
+ReactDOM.render(
+    <MyComponent2 />,
+    document.getElementById("app1")
+);
+</script>
+<script type="text/babel">
+    const divBig=<h3 id={myId.toUpperCase()}>{hel.toUpperCase()}</h3>;
+    ReactDOM.render(
+    divBig,
+    document.getElementById("app2")
+);
+</script>
+<script type="text/babel">
+    ReactDOM.render(
+    cre,
+    document.getElementById("app3")
+    );
+</script>
+</body>
+</html></div>
